@@ -1,0 +1,32 @@
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# PHP specific
+vendor/
+composer.lock
+
+# WordPress specific
+wp-content/uploads/
+wp-config.php
+
+# Node.js
+node_modules/
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Other
+*.bak
+*.swp
+*.tmp
+*.temp
+*.pid
+*.seed
+*.pid.lock
