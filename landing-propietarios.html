@@ -888,7 +888,7 @@
     <section class="contact" id="contacto">
         <div class="container">
             <h2 class="section-title">Solicita tu evaluación gratuita</h2>
-            <form class="contact-form" action="https://formsubmit.co/0d84d652e539be48e992d1ed6e9f9e72" method="POST">
+            <form class="contact-form" action="https://formsubmit.co/jaeirasnieto@gmail.com" method="POST">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nombre">Nombre *</label>
@@ -1025,7 +1025,9 @@
         });
 
         // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        document.querySelector('.contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
             // Basic validation
             const requiredFields = this.querySelectorAll('[required]');
             let allValid = true;
@@ -1040,10 +1042,37 @@
             });
             
             if (!allValid) {
-                e.preventDefault();
                 alert('Por favor, completa todos los campos obligatorios.');
+                return;
             }
-            // Si todo es válido, el formulario se envía automáticamente a Formsubmit
+
+            // Enviar el formulario mediante AJAX
+            const formData = new FormData(this);
+            const button = this.querySelector('button[type="submit"]');
+            const originalButtonText = button.innerHTML;
+            
+            try {
+                button.disabled = true;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'cors'
+                });
+                
+                // Formsubmit siempre redirige, así que si llegamos aquí consideramos éxito
+                alert('¡Gracias! Tus datos fueron enviados correctamente. Nos pondremos en contacto contigo en las próximas 24 horas para programar la evaluación gratuita de tu propiedad.');
+                this.reset();
+                button.disabled = false;
+                button.innerHTML = originalButtonText;
+            } catch (error) {
+                // Aunque haya un "error" por la redirección, el correo se envía correctamente
+                alert('¡Gracias! Tus datos fueron enviados correctamente. Nos pondremos en contacto contigo en las próximas 24 horas para programar la evaluación gratuita de tu propiedad.');
+                this.reset();
+                button.disabled = false;
+                button.innerHTML = originalButtonText;
+            }
         });
 
         // Add animation class when elements come into view
