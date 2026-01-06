@@ -917,6 +917,191 @@
             }
         }
 
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            display: none;
+            animation: slideUpCookie 0.5s ease;
+            border-top: 3px solid #3b82f6;
+        }
+
+        .cookie-banner.show {
+            display: block;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .cookie-text p {
+            margin: 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .cookie-text a {
+            color: #60a5fa;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .cookie-text a:hover {
+            color: #93c5fd;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .cookie-btn-accept {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .cookie-btn-accept:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+        }
+
+        .cookie-btn-reject {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cookie-btn-reject:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes slideUpCookie {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Privacy Checkbox */
+        .privacy-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .privacy-checkbox input[type="checkbox"] {
+            width: auto;
+            margin-top: 0.25rem;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .privacy-checkbox label {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.5;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .privacy-checkbox a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .privacy-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Legal Links */
+        .footer-legal {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-legal ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-legal ul li a {
+            color: #999;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-legal ul li a:hover {
+            color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+            .cookie-content {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1.5rem;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+            }
+
+            .cookie-btn {
+                width: 100%;
+            }
+
+            .footer-legal ul {
+                flex-direction: column;
+                gap: 0.75rem;
+                text-align: center;
+            }
+        }
+
         /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed;
@@ -1192,6 +1377,12 @@
                     <label for="mensaje">Comentarios adicionales</label>
                     <textarea id="mensaje" name="mensaje" rows="4" placeholder="Déjanos cualquier comentario que consideres oportuno"></textarea>
                 </div>
+                <div class="privacy-checkbox">
+                    <input type="checkbox" id="privacy" name="privacy" required>
+                    <label for="privacy">
+                        He leído y acepto la <a href="#privacidad" target="_blank">Política de Privacidad</a> y el tratamiento de mis datos personales conforme al RGPD *
+                    </label>
+                </div>
                 <div class="form-group">
                     <button type="submit" class="cta-button" style="width: 100%; padding: 15px;">
                         <i class="fas fa-info-circle"></i> Solicitar información
@@ -1265,11 +1456,36 @@
                     </ul>
                 </div>
             </div>
+            <div class="footer-legal">
+                <ul>
+                    <li><a href="#aviso-legal">Aviso Legal</a></li>
+                    <li><a href="#privacidad">Política de Privacidad</a></li>
+                    <li><a href="#cookies">Política de Cookies</a></li>
+                </ul>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Aimi Soluciones Inmobiliarias S.L. Todos los derechos reservados. | Registro Mercantil de A Coruña | CIF: B12345678</p>
             </div>
         </div>
     </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>
+                    <strong><i class="fas fa-cookie-bite"></i> Este sitio utiliza cookies</strong><br>
+                    Utilizamos cookies propias y de terceros para mejorar tu experiencia de navegación, analizar el tráfico web y personalizar contenido. 
+                    Al hacer clic en "Aceptar", consientes el uso de todas las cookies. Para más información, consulta nuestra 
+                    <a href="#cookies" target="_blank">Política de Cookies</a> y <a href="#privacidad" target="_blank">Política de Privacidad</a>.
+                </p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Solo esenciales</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()"><i class="fas fa-check"></i> Aceptar todas</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Success Modal -->
     <div class="modal-overlay" id="successModal">
@@ -1294,6 +1510,45 @@
     </a>
 
     <script>
+        // Cookie Banner Management
+        function showCookieBanner() {
+            const cookieConsent = localStorage.getItem('cookieConsent');
+            if (!cookieConsent) {
+                document.getElementById('cookieBanner').classList.add('show');
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            document.getElementById('cookieBanner').classList.remove('show');
+            
+            // Activar Google Analytics si está configurado
+            if (typeof gtag !== 'undefined') {
+                trackEvent('Cookies', 'accept', 'Usuario aceptó cookies');
+            }
+            
+            // Aquí puedes activar otras cookies/scripts de terceros
+            console.log('Cookies aceptadas: Analytics y funcionalidades habilitadas');
+        }
+
+        function rejectCookies() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            document.getElementById('cookieBanner').classList.remove('show');
+            
+            // Desactivar Google Analytics
+            if (typeof gtag !== 'undefined') {
+                window['ga-disable-G-XXXXXXXXXX'] = true;
+                trackEvent('Cookies', 'reject', 'Usuario rechazó cookies');
+            }
+            
+            console.log('Solo cookies esenciales activadas');
+        }
+
+        // Mostrar banner al cargar la página (con delay para mejor UX)
+        setTimeout(showCookieBanner, 1000);
+
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
