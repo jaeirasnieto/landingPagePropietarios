@@ -68,6 +68,150 @@
         }
     </script>
     
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "RealEstateAgent",
+                "@id": "https://jaeirasnieto.github.io/landingPagePropietarios/#organization",
+                "name": "Aimi Soluciones Inmobiliarias S.L.",
+                "legalName": "Aimi Soluciones Inmobiliarias S.L.",
+                "description": "Empresa de gestión inmobiliaria especializada en alquiler de viviendas con pago garantizado y gestión integral para propietarios en A Coruña.",
+                "url": "https://jaeirasnieto.github.io/landingPagePropietarios/landing-propietarios.html",
+                "logo": "https://jaeirasnieto.github.io/landingPagePropietarios/favicon.svg",
+                "image": "https://jaeirasnieto.github.io/landingPagePropietarios/images/og-image.jpg",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "A Coruña",
+                    "addressRegion": "Galicia",
+                    "addressCountry": "ES"
+                },
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+34-636302872",
+                    "contactType": "customer service",
+                    "areaServed": "ES",
+                    "availableLanguage": ["Spanish"]
+                },
+                "sameAs": [
+                    "https://jaeirasnieto.github.io/landingPagePropietarios/"
+                ],
+                "priceRange": "€€"
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://jaeirasnieto.github.io/landingPagePropietarios/landing-propietarios.html#webpage",
+                "url": "https://jaeirasnieto.github.io/landingPagePropietarios/landing-propietarios.html",
+                "name": "Aimi S.L. - Alquilamos tu vivienda de forma segura",
+                "description": "Alquilamos tu vivienda directamente como empresa inquilina. Pago garantizado todos los meses, gestión integral sin preocupaciones.",
+                "publisher": {
+                    "@id": "https://jaeirasnieto.github.io/landingPagePropietarios/#organization"
+                },
+                "inLanguage": "es-ES"
+            },
+            {
+                "@type": "Service",
+                "@id": "https://jaeirasnieto.github.io/landingPagePropietarios/#service",
+                "serviceType": "Gestión de Alquiler de Viviendas",
+                "provider": {
+                    "@id": "https://jaeirasnieto.github.io/landingPagePropietarios/#organization"
+                },
+                "areaServed": {
+                    "@type": "City",
+                    "name": "A Coruña"
+                },
+                "description": "Servicio de alquiler de viviendas con empresa inquilina, gestión integral, pago garantizado y mantenimiento incluido.",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "priceSpecification": {
+                        "@type": "PriceSpecification",
+                        "priceCurrency": "EUR"
+                    }
+                },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Servicios de Gestión Inmobiliaria",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Pago Garantizado Mensual",
+                                "description": "Garantizamos el pago mensual independientemente de la ocupación"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Gestión Integral de Vivienda",
+                                "description": "Nos ocupamos de selección de inquilinos, contratos, cobros y mantenimiento"
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Mantenimiento Incluido",
+                                "description": "Reparaciones menores y mantenimiento preventivo sin coste adicional"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://jaeirasnieto.github.io/landingPagePropietarios/landing-propietarios.html#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "¿Quién paga si hay problemas?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Nosotros. Usted cobra siempre lo acordado."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Tengo que tratar con los ocupantes?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Su relación es únicamente con nuestra empresa."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Qué pasa si hay desperfectos?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Nos responsabilizamos del mantenimiento y devolvemos el piso en condiciones acordadas."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Cuánto dura el contrato?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Buscamos relaciones estables, normalmente a medio-largo plazo."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Es obligatorio aceptar el subarriendo?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Solo trabajamos con consentimiento claro y por escrito."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
