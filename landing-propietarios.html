@@ -916,6 +916,56 @@
                 transform: scale(1);
             }
         }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            background: #128C7E;
+        }
+
+        .whatsapp-float i {
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(37, 211, 102, 0.7);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 15px;
+                right: 15px;
+                width: 55px;
+                height: 55px;
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1209,7 +1259,7 @@
                 <div class="footer-section">
                     <h3>Contacto</h3>
                     <ul>
-                        <li><i class="fas fa-phone"></i> +34 626 026 773</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+34636302872" style="color: #ccc; text-decoration: none;">+34-636302872</a></li>
                         <li><i class="fas fa-envelope"></i> info@aimi.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> A Coruña</li>
                     </ul>
@@ -1232,6 +1282,16 @@
             <button class="modal-button" onclick="closeModal()">Entendido</button>
         </div>
     </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/34636302872?text=Hola,%20estoy%20interesado%20en%20alquilar%20mi%20vivienda%20con%20Aimi.%20¿Podemos%20hablar?" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp"
+       onclick="trackEvent('WhatsApp', 'click', 'Botón flotante')">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         // Hamburger menu toggle
