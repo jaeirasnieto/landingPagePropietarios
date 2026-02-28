@@ -17,7 +17,7 @@ He agregado **Google Analytics 4** (GA4) a tu landing page con:
 1. Ve a [https://analytics.google.com](https://analytics.google.com)
 2. Inicia sesión con tu cuenta de Google
 3. Haz clic en **"Empezar a medir"** (o "Start measuring")
-4. Crea una **cuenta** (nombre: "Aimi S.L.")
+4. Crea una **cuenta** (nombre: "Aimi Soluciones Inmobiliarias S.L.")
 5. Crea una **propiedad** (nombre: "Landing Propietarios")
    - Zona horaria: España
    - Moneda: EUR
