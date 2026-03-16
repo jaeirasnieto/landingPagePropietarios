@@ -1,0 +1,9 @@
+# Robots.txt para aimigroup.es/propietarios/
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://aimigroup.es/propietarios/sitemap.xml
+
+# Bloquear acceso a archivos internos
+Disallow: /.well-known/
