@@ -37,10 +37,11 @@ nav {
 }
 
 .logo {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: #0f172a;
     letter-spacing: -0.02em;
+    white-space: nowrap;
 }
 
 .logo i {
@@ -51,13 +52,15 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
-    margin-left: 3rem;
+    gap: 1.5rem;
+    margin-left: 2rem;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #475569;
+    font-size: 0.9rem;
+    white-space: nowrap;
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
