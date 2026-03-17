@@ -603,7 +603,7 @@
                 <div class="footer-section">
                     <h3>Contacto</h3>
                     <ul>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+34626026773" style="color: #ccc; text-decoration: none;">+34 626 026 773</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+34626026773" style="color: #ccc; text-decoration: none;" onclick="trackGA4Event('click_phone', {method: 'footer'})">+34 626 026 773</a></li>
                         <li><i class="fas fa-envelope"></i> info@aimigroup.es</li>
                         <li><i class="fas fa-map-marker-alt"></i> A Coruña</li>
                     </ul>
@@ -658,19 +658,24 @@
        target="_blank" 
        rel="noopener noreferrer"
        aria-label="Contactar por WhatsApp"
-       onclick="trackEvent('WhatsApp', 'click', 'Botón flotante')">
+       onclick="trackGA4Event('click_whatsapp', {method: 'whatsapp_float'})">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Google Analytics helper
-        function trackEvent(category, action, label) {
+        // Google Analytics 4 - Event tracking
+        function trackGA4Event(eventName, params) {
             if (typeof gtag !== 'undefined') {
-                gtag('event', action, {
-                    'event_category': category,
-                    'event_label': label
-                });
+                gtag('event', eventName, params || {});
             }
+        }
+
+        // Legacy wrapper
+        function trackEvent(category, action, label) {
+            trackGA4Event(action, {
+                'event_category': category,
+                'event_label': label
+            });
         }
 
         // Cookie Banner Management
@@ -769,7 +774,10 @@
             }
 
             // Track inicio de envío
-            trackEvent('Form', 'submit_start', 'Formulario contacto');
+            trackGA4Event('generate_lead', {
+                event_category: 'contact_form',
+                method: 'formulario_web'
+            });
 
             // Enviar el formulario mediante AJAX
             const formData = new FormData(this);
@@ -787,14 +795,12 @@
                 });
                 
                 // Formsubmit siempre redirige, así que si llegamos aquí consideramos éxito
-                trackEvent('Form', 'submit_success', 'Formulario enviado correctamente');
                 showSuccessModal();
                 this.reset();
                 button.disabled = false;
                 button.innerHTML = originalButtonText;
             } catch (error) {
                 // Aunque haya un "error" por la redirección, el correo se envía correctamente
-                trackEvent('Form', 'submit_success', 'Formulario enviado correctamente');
                 showSuccessModal();
                 this.reset();
                 button.disabled = false;
