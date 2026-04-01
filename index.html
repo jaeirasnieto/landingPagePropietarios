@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alquilar tu vivienda de forma segura en A Coruña | Pago garantizado | Aimi Soluciones Inmobiliarias</title>
+    <title>Alquila tu vivienda de forma segura en A Coruña | Pago garantizado</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="¿Propietario en A Coruña? Alquila tu vivienda de forma segura con pago garantizado todos los meses. Empresa inquilina con gestión integral, contratos según LAU y protección total de tu propiedad.">
+    <meta name="description" content="¿Propietario en A Coruña? Alquila tu vivienda con pago garantizado todos los meses. Empresa inquilina, gestión integral y protección total de tu propiedad.">
     <meta name="keywords" content="alquilar vivienda Coruña forma segura, alquiler seguro Coruña, propietario alquilar vivienda segura Coruña, empresa inquilina, pago garantizado alquiler, gestión integral inmuebles, protección propietarios Coruña, alquiler garantizado A Coruña, arrendamiento empresarial seguro, alquilar piso seguro Galicia, renta segura Coruña, alquiler sin preocupaciones">
     <meta name="author" content="Aimi Soluciones Inmobiliarias S.L.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -53,15 +53,23 @@
     <link rel="manifest" href="/propietarios/site.webmanifest">
     <meta name="theme-color" content="#3b82f6">
     
-    <!-- Google Analytics 4 -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33F6MXYP00"></script>
+    <!-- Google Analytics 4 - Carga condicional tras consentimiento de cookies -->
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-33F6MXYP00');
+    function loadGoogleAnalytics() {
+        if (document.querySelector('script[src*="googletagmanager.com/gtag"]')) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-33F6MXYP00';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-33F6MXYP00');
+    }
+    // Solo cargar GA si el usuario ya aceptó cookies previamente
+    if (localStorage.getItem('cookieConsent') === 'accepted') {
+        loadGoogleAnalytics();
+    }
     </script>
     
     <!-- JSON-LD Structured Data -->
@@ -692,13 +700,8 @@
             localStorage.setItem('cookieConsentDate', new Date().toISOString());
             document.getElementById('cookieBanner').classList.remove('show');
             
-            // Activar Google Analytics si está configurado
-            if (typeof gtag !== 'undefined') {
-                trackEvent('Cookies', 'accept', 'Usuario aceptó cookies');
-            }
-            
-            // Aquí puedes activar otras cookies/scripts de terceros
-            console.log('Cookies aceptadas: Analytics y funcionalidades habilitadas');
+            // Cargar Google Analytics tras consentimiento
+            loadGoogleAnalytics();
         }
 
         function rejectCookies() {
@@ -706,13 +709,7 @@
             localStorage.setItem('cookieConsentDate', new Date().toISOString());
             document.getElementById('cookieBanner').classList.remove('show');
             
-            // Desactivar Google Analytics
-            if (typeof gtag !== 'undefined') {
-                window['ga-disable-G-33F6MXYP00'] = true;
-                trackEvent('Cookies', 'reject', 'Usuario rechazó cookies');
-            }
-            
-            console.log('Solo cookies esenciales activadas');
+            // GA no se carga si el usuario rechaza, no hay nada que desactivar
         }
 
         // Mostrar banner al cargar la página (con delay para mejor UX)
