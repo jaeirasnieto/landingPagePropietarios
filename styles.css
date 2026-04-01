@@ -991,6 +991,41 @@ footer {
     text-decoration: underline;
 }
 
+/* SEO Content Section */
+.seo-content {
+    padding: 80px 0;
+    background: #f8fafc;
+}
+
+.seo-content-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.seo-article {
+    margin-bottom: 2.5rem;
+}
+
+.seo-article-title {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.seo-article-text {
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.seo-article-list {
+    color: #475569;
+    line-height: 2;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
 /* Footer Legal Links */
 .footer-legal {
     margin-top: 1.5rem;
